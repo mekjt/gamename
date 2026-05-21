@@ -10,7 +10,7 @@ public class user : MonoBehaviour
         Input.GetKeyDown(KeyCode.D);
         {
             Debug.Log("이동중");
-            Vector2 vec = new Vector2(1, 1);//1번이 x값 2번이 y값 추정
+            Vector2 vec = new Vector2(1, 0);//1번이 x값 2번이 y값 추정
             transform.Translate(vec);
         }
     }
