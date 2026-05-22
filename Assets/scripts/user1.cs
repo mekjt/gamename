@@ -30,6 +30,6 @@ public class asdf : MonoBehaviour
         float v = Input.GetAxis("Vertical");
 
         Vector2 velocity = new Vector2(h, v).normalized;
-        rb.velocity = velocity * speed;
+        rb.linearVelocity = velocity * speed;
     }
 }
