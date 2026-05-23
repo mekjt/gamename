@@ -22,6 +22,11 @@ public class asdf : MonoBehaviour
             rb.AddForce(jumpDir, ForceMode2D.Impulse);
         }
         Movement();
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+
+
+        }
     }
 
     void Movement()
@@ -30,6 +35,8 @@ public class asdf : MonoBehaviour
         float v = Input.GetAxis("Vertical");
 
         Vector2 velocity = new Vector2(h, v).normalized;
-        rb.linearVelocity = velocity * speed;
+        //rb.linearVelocity = velocity * speed;
+        // Movement() 내부 수정 예시 (X축만 내 입력 적용, Y축은 물리 엔진에 위임)
+        rb.linearVelocity = new Vector2(h * speed, rb.linearVelocity.y);
     }
 }
