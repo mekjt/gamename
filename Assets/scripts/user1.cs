@@ -6,7 +6,7 @@ public class asdf : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float jumpForce = 5.0f;
-    [SerializeField] float speed = 5.0f;
+    [SerializeField] float speed = 3.0f;
     [SerializeField] float upspeed = 5.0f;
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,7 @@ public class asdf : MonoBehaviour
         float x = speed;
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            x = speed + upspeed;
+            x = speed * upspeed;
         }
         rb.linearVelocity = new Vector2(h * x, rb.linearVelocity.y);
         Vector2 velocity = new Vector2(h, v).normalized;
