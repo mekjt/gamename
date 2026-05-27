@@ -8,6 +8,7 @@ public enum ItemType
 {
     EquIpment,
     Consumables,
+    Coin,
     Etc
 }
 [System.Serializable]

@@ -8,6 +8,7 @@ public class asdf : MonoBehaviour
     [SerializeField] float jumpForce = 5.0f;
     [SerializeField] float speed = 3.0f;
     [SerializeField] float upspeed = 5.0f;
+                     int coin = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,5 +41,30 @@ public class asdf : MonoBehaviour
         // Movement() 내부 수정 예시 (X축만 입력 적용, Y축은 물리 엔진에 위임)
         //rb.linearVelocity = new Vector2(h * speed, rb.linearVelocity.y);
         // rb.velocity = new Vector2(h * speed, -upspeed);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Fieldltems item =
+            collision.GetComponent<Fieldltems>();
+
+        if (item != null)
+        {
+            if (item.item.itemType == ItemType.Coin)
+            {
+                coin++;
+
+                Debug.Log("코인 : " + coin);
+
+                item.DestroyItem();
+
+                if (coin >= 3)
+                {
+                    Debug.Log("게임 클리어");
+
+                    Time.timeScale = 0;
+                }
+            }
+        }
     }
 }
